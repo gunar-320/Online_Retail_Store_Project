@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<!-- Mirrored from portotheme.com/html/wolmart/cart.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 14 Apr 2022 07:17:31 GMT -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+
+    <title>Wolmart eCommmerce Marketplace HTML Template</title>
+
+    <meta name="keywords" content="Marketplace ecommerce responsive HTML5 Template" />
+    <meta name="description" content="Wolmart is powerful marketplace &amp; ecommerce responsive Html5 Template.">
+    <meta name="author" content="D-THEMES">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/images/icons/favicon.png">
+
+    <!-- WebFont.js -->
+    <script>
+        WebFontConfig = {
+            google: { families: ['Poppins:400,500,600,700'] }
+        };
+        ( function ( d ) {
+            var wf = d.createElement( 'script' ), s = d.scripts[0];
+            wf.src = 'assets/js/webfont.js';
+            wf.async = true;
+            s.parentNode.insertBefore( wf, s );
+        } )( document );
+    </script>
+
+    <link rel="preload" href="assets/vendor/fontawesome-free/webfonts/fa-regular-400.woff2" as="font" type="font/woff2"
+        crossorigin="anonymous">
+    <link rel="preload" href="assets/vendor/fontawesome-free/webfonts/fa-solid-900.woff2" as="font" type="font/woff2"
+        crossorigin="anonymous">
+    <link rel="preload" href="assets/vendor/fontawesome-free/webfonts/fa-brands-400.woff2" as="font" type="font/woff2"
+            crossorigin="anonymous">
+    <link rel="preload" href="assets/fonts/wolmart87d5.woff?png09e" as="font" type="font/woff" crossorigin="anonymous">
+
+    <!-- Vendor CSS -->
+    <link rel="stylesheet" type="text/css" href="assets/vendor/fontawesome-free/css/all.min.css">
+
+    <!-- Plugin CSS -->
+    <link rel="stylesheet" type="text/css" href="assets/vendor/magnific-popup/magnific-popup.min.css">
+
+    <!-- Default CSS -->
+    <link rel="stylesheet" type="text/css" href="assets/css/style.min.css">
+</head>
+
+<body>
+    <div class="page-wrapper">
+        <h1 class="d-none">Wolmart - Responsive Marketplace HTML Template</h1>
+        <!-- Start of Header -->
+        <header class="header">
+            <div class="header-top">
+                <div class="container">
+                    <div class="header-left">
+                        <p class="welcome-msg">Welcome to JPAS Store!</p>
+                    </div>
+
+                    <div class="header-right">
+                        <span class="divider d-lg-show"></span>
+                        <a href="/auth/faq" class="d-lg-show">FAQ</a>
+                        <a href="/auth/about" class="d-lg-show">About Us</a>
+                        <a href="/auth/contact" class="d-lg-show">Contact Us</a>
+                        <span class="divider d-lg-show"></span>
+                        <a href="/store/account" class="d-lg-show">My Account</a>
+                        <a href="/auth/logout" class="d-lg-show sign-out"><i
+                                class="w-icon-account"></i>Sign Out</a>
+                    </div>
+                </div>
+            </div>
+            <!-- End of Header Top -->
+
+            <div class="header-middle">
+                <div class="container">
+                    <div class="header-left mr-md-4">
+                        <a href="#" class="mobile-menu-toggle  w-icon-hamburger" aria-label="menu-toggle">
+                        </a>
+                        <a href="/" class="logo ml-lg-0">
+                            <img src="assets/images/logo.png" alt="logo" width="144" height="45" />
+                        </a>
+                        <form method="get" action="#"
+                            class="header-search hs-expanded hs-round d-none d-md-flex input-wrapper">
+                            <div class="select-box">
+                                <select id="category" name="category">
+                                    <option value="">All Categories</option>
+                                    <option value="4">Clothing</option>
+                                    <option value="5">E-Appliances</option>
+                                    <option value="6">Footwear</option>
+                                </select>
+                            </div>
+                            <input type="text" class="form-control" name="search" id="search" placeholder="Search in..."
+                                required />
+                            <button class="btn btn-search" type="submit"><i class="w-icon-search"></i>
+                            </button>
+                        </form>
+                    </div>
+
+                    <div class="header-right ml-4">
+                        <div class="dropdown cart-dropdown cart-offcanvas mr-0 mr-lg-2">
+                            <div class="cart-overlay"></div>
+                            <a href="/user/cart" class="cart-toggle label-down link">
+                                <i class="w-icon-cart">
+                                    <span class="cart-count">{{Carts|length}}</span>
+                                </i>
+                                <span class="cart-label">Cart</span>
+                            </a>
+                            <div class="dropdown-box">
+                                <div class="cart-header">
+                                    <span>Shopping Cart</span>
+                                    <a href="#" class="btn-close">Close<i class="w-icon-long-arrow-right"></i></a>
+                                </div>
+                                {% if Carts|length > 0 %}
+                                    <div class="products">
+                                        {% for item in Carts %}
+                                            <div class="product product-cart">
+                                                <div class="product-detail">
+                                                    <a href="/store/product{{item[0]}}" class="product-name">{{item[5]}}</a>
+                                                    <div class="price-box">
+                                                        <span class="product-quantity">{{item[1]}}</span>
+                                                        <span class="product-price">${{item[6]}}.00</span>
+                                                    </div>
+                                                </div>
+                                                <figure class="product-media">
+                                                    {% if item[7] == 1 %}
+                                                        <img src="assets/images/store/cart/1.jpg" alt="Product Image" />
+                                                    {% elif item[7] == 2 %}
+                                                        <img src="assets/images/store/cart/2.jpg" alt="Product Image" />
+                                                    {% else %}
+                                                        <img src="assets/images/store/cart/3.jpg" alt="product" height="84"
+                                                            width="94" />
+                                                    {% endif %}
+                                                </figure>
+                                                <form method="post" action="/user/cartremove">
+                                                    <input type="hidden" name="pdid" value="{{item[0]}}">
+                                                    <input type="hidden" name="quantity" value="{{item[1]}}">
+                                                    <input type="hidden" name="attr" value="{{item[3]}}">
+                                                    <input type="hidden" name="placed" value="{{item[4]}}">
+
+                                                    <button type="submit" class="btn btn-link btn-close" aria-label="button">
+                                                        <i class="fas fa-times"></i>
+                                                    </button>
+                                                </form>
+                                            </div>
+                                        {% endfor %}
+                                        <div class="cart-total cart-detail ">
+                                            <label>Total:</label>
+                                            <span class="price">${{CartTotal}}.00</span>
+                                        </div>
+
+                                        <div class="cart-action">
+                                            <a href="/user/cart" class="btn btn-dark btn-outline btn-rounded">View Cart</a>
+                                            <a href="/user/checkout" class="btn btn-primary  btn-rounded">Checkout</a>
+                                        </div>
+                                    </div>
+                                {% else %}
+                                    <div class="product product-cart">
+                                        <div class="product-detail">
+                                            <a class="product-name">
+                                                Your cart is currently empty
+                                            </a>
+                                            <div class="price-box">
+                                                <span class="product-quantity">Add to cart</span>
+                                                <span class="product-price">Have your cart filled</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                {% endif %}
+                            </div>
+                            <!-- End of Dropdown Box -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End of Header Middle -->
+        </header>
+        <!-- End of Header -->
+
+        <!-- Start of Main -->
+        <main class="main cart">
+            <!-- Start of Breadcrumb -->
+            <nav class="breadcrumb-nav">
+                <div class="container">
+                    <ul class="breadcrumb shop-breadcrumb bb-no">
+                        <li class="active"><a href="cart.html">Shopping Cart</a></li>
+                    </ul>
+                </div>
+            </nav>
+            <!-- End of Breadcrumb -->
+
+            {% with messages = get_flashed_messages() %}
+                 {% if messages %}
+                       {% for message in messages %}
+                            <div class="alert alert-dark alert-bg alert-block alert-inline show-code-action">
+
+                                {{message}}
+                                <button class="btn btn-link btn-close" aria-label="button">
+                                    <i class="close-icon"></i>
+                                </button>
+                            </div>
+                       {% endfor %}
+                {% endif %}
+            {% endwith %}
+
+            <!-- Start of PageContent -->
+            <div class="page-content">
+                <div class="container">
+                    <div class="row gutter-lg mb-10">
+                        {%  if Carts|length > 0 %}
+                        <div class="col-lg-8 pr-lg-4 mb-6">
+                            <table class="shop-table cart-table">
+                                <thead>
+                                    <tr>
+                                        <th class="product-name"><span>Product</span></th>
+                                        <th></th>
+                                        <th class="product-price"><span>Price</span></th>
+                                        <th class="product-quantity"><span>Quantity</span></th>
+                                        <th class="product-subtotal"><span>Subtotal</span></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for cart in Carts %}
+                                    <tr>
+                                        <td class="product-thumbnail">
+                                            <div class="p-relative">
+                                                <a href="product-default.html">
+                                                    <figure>
+                                                        {% if cart[7] == 1 %}
+                                                        <img src="assets/images/store/products/clothes/1.jpg" alt="product"
+                                                            width="300" height="338">
+                                                        {% elif cart[7] == 1 %}
+                                                        <img src="assets/images/store/products/footwears/2.jpg" alt="product"
+                                                            width="300" height="338">
+                                                        {% else %}
+                                                        <img src="assets/images/store/products/e-appliances/3.jpg" alt="product"
+                                                            width="300" height="338">
+                                                        {% endif %}
+                                                    </figure>
+                                                </a>
+                                                <form method="post" action="/user/cartremove">
+                                                    <input type="hidden" name="pdid" value="{{cart[0]}}">
+                                                    <input type="hidden" name="quantity" value="{{cart[1]}}">
+                                                    <input type="hidden" name="attr" value="{{cart[3]}}">
+                                                    <input type="hidden" name="placed" value="{{cart[4]}}">
+
+                                                    <button type="submit" class="btn btn-link btn-close" aria-label="button">
+                                                        <i class="fas fa-times"></i>
+                                                    </button>
+                                                </form>
+                                            </div>
+                                        </td>
+                                        <td class="product-name">
+                                            <a href="product-default.html">
+                                                {{cart[5]}}
+                                            </a>
+                                        </td>
+                                        <td class="product-price"><span class="amount">${{cart[6]}}.00</span></td>
+                                        <td class="product-quantity">
+                                            <span class="quantity form-control">{{cart[1]}}</span>
+                                        </td>
+                                        <td class="product-subtotal">
+                                            <span class="amount">${{cart[1] * cart[6]}}.00</span>
+                                        </td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+
+                            <div class="cart-action mb-6">
+                                <a href="/" class="btn btn-dark btn-rounded btn-icon-left btn-shopping mr-auto"><i class="w-icon-long-arrow-left"></i>Continue Shopping</a>
+                            </div>
+
+                        </div>
+                        <div class="col-lg-4 sticky-sidebar-wrapper">
+                            <div class="sticky-sidebar">
+                                <div class="cart-summary mb-4">
+                                    <h3 class="cart-title text-uppercase">Cart Totals</h3>
+                                    <div class="cart-subtotal d-flex align-items-center justify-content-between">
+                                        <label class="ls-25">Total</label>
+                                        <span>${{CartTotal}}.00</span>
+                                    </div>
+
+                                    <hr class="divider">
+
+                                    <a href="/user/checkout"
+                                        class="btn btn-block btn-dark btn-icon-right btn-rounded  btn-checkout">
+                                        Proceed to checkout<i class="w-icon-long-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        {%  else %}
+                        <div class="col-lg-12">
+                            <div class="alert alert-warning">
+                                <h4>Your cart is empty</h4>
+                                <p>You have no items in your shopping cart.</p>
+                                <div class="cart-action mb-6">
+                                <a href="/" class="btn btn-dark btn-rounded btn-icon-left btn-shopping mr-auto"><i class="w-icon-long-arrow-left"></i>Continue Shopping</a>
+                            </div>
+                            </div>
+                        </div>
+                        {% endif %}
+                </div>
+            </div>
+            <!-- End of PageContent -->
+        </main>
+        <!-- End of Main -->
+
+        <!-- Start of Footer -->
+        <footer class="footer appear-animate" data-animation-options="{
+            'name': 'fadeIn'
+        }">
+            <div class="footer-newsletter bg-primary pt-6 pb-6">
+                <div class="container">
+                    <div class="row justify-content-center align-items-center">
+                    </div>
+                </div>
+            </div>
+            <div class="container">`
+                <div class="footer-top">
+                    <div class="row">
+                        <div class="col-lg-4 col-sm-6">
+                            <div class="widget widget-about">
+                                <a href="/" class="logo-footer">
+                                    <img src="assets/images/logo_footer.png" alt="logo-footer" width="144"
+                                        height="45" />
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <div class="footer-left">
+                        <p class="copyright">Copyright © 2021 JPAS Store. All Rights Reserved.</p>
+                    </div>
+                    <div class="footer-right">
+                        <span class="payment-label mr-lg-8">We're using safe payment for</span>
+                        <p class="copyright">UPI and COD.</p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- End of Footer -->
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <!-- Start of Sticky Footer -->
+    <div class="sticky-footer sticky-content fix-bottom">
+        <a href="demo1.html" class="sticky-link active">
+            <i class="w-icon-home"></i>
+            <p>Home</p>
+        </a>
+        <a href="shop-banner-sidebar.html" class="sticky-link">
+            <i class="w-icon-category"></i>
+            <p>Shop</p>
+        </a>
+        <a href="my-account.html" class="sticky-link">
+            <i class="w-icon-account"></i>
+            <p>Account</p>
+        </a>
+        <div class="cart-dropdown dir-up">
+            <a href="cart.html" class="sticky-link">
+                <i class="w-icon-cart"></i>
+                <p>Cart</p>
+            </a>
+            <div class="dropdown-box">
+                <div class="products">
+                    <div class="product product-cart">
+                        <div class="product-detail">
+                            <h3 class="product-name">
+                                <a href="product-default.html">Beige knitted elas<br>tic
+                                    runner shoes</a>
+                            </h3>
+                            <div class="price-box">
+                                <span class="product-quantity">1</span>
+                                <span class="product-price">$25.68</span>
+                            </div>
+                        </div>
+                        <figure class="product-media">
+                            <a href="#">
+                                <img src="assets/images/cart/product-1.jpg" alt="product" height="84"
+                                    width="94" />
+                            </a>
+                        </figure>
+                        <button class="btn btn-link btn-close" aria-label="button">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+
+                    <div class="product product-cart">
+                        <div class="product-detail">
+                            <h3 class="product-name">
+                                <a href="https://www.portotheme.com/html/wolmart/product.html">Blue utility pina<br>fore
+                                    denim dress</a>
+                            </h3>
+                            <div class="price-box">
+                                <span class="product-quantity">1</span>
+                                <span class="product-price">$32.99</span>
+                            </div>
+                        </div>
+                        <figure class="product-media">
+                            <a href="#">
+                                <img src="assets/images/cart/product-2.jpg" alt="product" width="84"
+                                    height="94" />
+                            </a>
+                        </figure>
+                        <button class="btn btn-link btn-close" aria-label="button">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="cart-total">
+                    <label>Subtotal:</label>
+                    <span class="price">$58.67</span>
+                </div>
+
+                <div class="cart-action">
+                    <a href="cart.html" class="btn btn-dark btn-outline btn-rounded">View Cart</a>
+                    <a href="checkout.html" class="btn btn-primary  btn-rounded">Checkout</a>
+                </div>
+            </div>
+            <!-- End of Dropdown Box -->
+        </div>
+        
+        <div class="header-search hs-toggle dir-up">
+            <a href="#" class="search-toggle sticky-link">
+                <i class="w-icon-search"></i>
+                <p>Search</p>
+            </a>
+            <form action="#" class="input-wrapper">
+                <input type="text" class="form-control" name="search" autocomplete="off"
+                    placeholder="Search" required />
+                <button class="btn btn-search" type="submit">
+                    <i class="w-icon-search"></i>
+                </button>
+            </form>
+        </div>
+    </div>
+    <!-- End of Sticky Footer -->
+    
+    <!-- Start of Scroll Top -->
+    <a id="scroll-top" class="scroll-top" href="#top" title="Top" role="button"> <i class="w-icon-angle-up"></i> <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70 70"> <circle id="progress-indicator" fill="transparent" stroke="#000000" stroke-miterlimit="10" cx="35" cy="35" r="34" style="stroke-dasharray: 16.4198, 400;"></circle> </svg> </a>
+    <!-- End of Scroll Top -->
+
+    <!-- Plugin JS File -->
+    <script src="assets/vendor/jquery/jquery.min.js"></script>
+    <script src="assets/vendor/sticky/sticky.js"></script>
+    <script src="assets/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+    <script src="assets/js/main.min.js"></script>
+</body>
+
+
+<!-- Mirrored from portotheme.com/html/wolmart/cart.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 14 Apr 2022 07:17:33 GMT -->
+</html>
